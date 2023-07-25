@@ -1,8 +1,8 @@
 # Minesweeper Board Generator App
 
-## Introductionhttps://github.com/sagar381/minesweeper/tree/main
+## Introduction
 
-This is a simple Ruby on Rails application that allows users to generate Minesweeper boards. The app provides a user-friendly interface where users can enter their email address, board width, height, and number of mines. Upon pressing the "Generate Board" button, the app will generate the Minesweeper board, store it in the database along with the dimensions and the user's email, and redirect the user to a page displaying the generated board.
+This simple Ruby on Rails application allows users to generate Minesweeper boards. The app provides a user-friendly interface where users can enter their email address, board width, height, and number of mines. Upon pressing the "Generate Board" button, the app will generate the Minesweeper board, store it in the database along with the dimensions and the user's email, and redirect the user to a page displaying the generated board.
 
 ## Requirements
 
