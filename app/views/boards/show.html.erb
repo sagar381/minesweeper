@@ -1,0 +1,48 @@
+<div class="container mt-5">
+  <div class="card shadow p-5 my-4">
+    <h2 class="mb-4">Board Details</h2>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <th scope="row">Email</th>
+            <td><%= @board.email %></td>
+          </tr>
+          <tr>
+            <th scope="row">No. of Columns</th>
+            <td><%= @board.cols %></td>
+          </tr>
+          <tr>
+            <th scope="row">No. of Rows</th>
+            <td><%= @board.rows %></td>
+          </tr>
+          <tr>
+            <th scope="row">No. of Mines</th>
+            <td><%= @board.mines.count %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <div class="card rounded">
+      <div class="card-body p-0">
+        <h2 class="card-title mb-4 font-weight-bold text-center bg-primary text-white py-2 rounded">Minesweeper Board</h2>
+      </div>
+      <div class="overflow-auto" style="max-height: 500px;">
+        <div class="d-flex flex-column align-items-center">
+          <% @board.rows.times do |r| %>
+            <div class="inline">
+              <% @board.cols.times do |c| %>
+                <%= show_button(@mines_board[r][c]) %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+  </div>
+
+  <div class="mt-4">
+    <%= link_to 'Back', boards_path, class: 'btn btn-primary' %>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<table class="table table-bordered table-hover">
+    <thead class="table-dark">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Email</th>
+        <th scope="col">Rows</th>
+        <th scope="col">Cols</th>
+        <th scope="col">Mines</th>
+        <th scope="col">Board</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @boards.each_with_index do |board, index| %>
+      <tr>
+        <th scope="row"><%= index + 1 %></th>
+        <td><%= board.email %></td>
+        <td><%= board.rows %></td>
+        <td><%= board.cols %></td>
+        <td><%= board.mines.count %></td>
+        <td><%= link_to "Show", board, class: 'btn btn-info' %></td>
+      </tr>
+    <% end %>
+    </tbody>
+</table>

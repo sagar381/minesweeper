@@ -1,0 +1,54 @@
+<% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
+<div class="container">
+  <div class="row p-5">
+    <div class="col-md-4 p-4 m-2 border rounded">
+      <div class="mb-4 card-heading bg-primary text-white text-center rounded p-1">
+        <h2>Create a new Board</h2>
+      </div>
+      <%= form_with(model: Board, url: create_board_path, method: :post, local: true) do |form| %>
+        <div class="mb-3">
+          <%= form.label :email, "Email:", class: 'form-label' %>
+          <%= form.email_field :email, class: 'form-control', required: true %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :rows, "Rows:", class: 'form-label' %>
+          <%= form.number_field :rows, class: 'form-control', required: true, min: 1 %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :cols, "Columns:", class: 'form-label' %>
+          <%= form.number_field :cols, class: 'form-control', required: true, min: 1 %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :mines, "Mines:", class: 'form-label' %>
+          <%= form.number_field :mines, class: 'form-control', required: true, min: 1 %>
+        </div>
+
+        <%= form.submit "Generate Board", class: 'btn btn-primary mt-3' %>
+      <% end %>
+    </div>
+
+    <div class="col-md-7 p-4 m-2 border rounded">
+      <h2 class="mb-4">Recent Boards</h2>
+      <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+        <%= render partial: 'boards/boards_table', locals: { boards: @recent_boards } %>
+      </div>
+    </div>
+
+    <div class="container-fluid  mt-4 p-4">
+      <h2 class="text-center mb-4">All Boards</h2>
+      <div class="col-md-12">
+        <div class="table-responsive" style="max-height: 500px; overflow-y: auto;">
+          <%= render partial: 'boards/boards_table', locals: { boards: @boards } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
